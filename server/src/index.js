@@ -1,16 +1,25 @@
-const { runDB } = require('./utils/dataBase.utils.js');
-const { serverPort } = require('../config/default.json');
+require('dotenv').config();
+const express = require('express')
+const { setUpConnection } = require('./utils/dataBase.utils.js');
 const routes = require('./v1/routes.js');
 
-const express = require('express')
+const serverPort = process.env.SERVER_PORT || "8000";
 
 const app = express();
-runDB();
+
+setUpConnection();
+
+app.use(express.json())
 
 app.use("/", routes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
+})
+
+// Global error handling
+app.use((err, _req, res, next) => {
+  res.status(500).send("Uh oh! An unexpected error occured.")
 })
 
 app.listen(serverPort, () => {

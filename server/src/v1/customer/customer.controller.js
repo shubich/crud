@@ -1,3 +1,4 @@
+require('./Customer.schema');
 const mongoose = require("mongoose");
 const Customer = mongoose.model('Customer');
 
@@ -16,21 +17,27 @@ const getCustomerById = (id) => {
 
 const createCustomer = (name) => {
     const customer = new Customer({
-        name: data.name,
+        name,
     });
     return customer.save()
+};
 
+const editCustomer = (id, name) => {
+    return Customer
+        .findById(id)
+        .updateOne({ name })
 };
 
 const deleteCustomer = (id) => {
     return Customer
         .findById(id)
-        .remove()
+        .deleteOne()
 };
 
 module.exports = {
     getCustomers,
     getCustomerById,
     createCustomer,
+    editCustomer,
     deleteCustomer
 }
