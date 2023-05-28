@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import styles from './customersTable.module.css';
 
 const CustomersTable = ({data, loading}) => {
@@ -26,7 +28,7 @@ const CustomersTable = ({data, loading}) => {
                             <tr key={item._id}>
                                 <td className={styles.td}>{index}</td>
                                 <td className={styles.td}>{item.name}</td>
-                                <td className={styles.td}>view, edit, delete</td>
+                                <td className={styles.td}><Link to={`customer/${item._id}`}>View</Link>, edit, delete</td>
                             </tr>
                         )
                     })

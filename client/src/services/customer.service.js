@@ -4,7 +4,7 @@ export const getCustomers = () => {
     return apiClient.get('/customers');
 }
 
-export const createCustomerById = (data) => {
+export const createCustomer = (data) => {
     return apiClient.post('/customer', data);
 }
 
