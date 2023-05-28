@@ -1,5 +1,7 @@
 require('dotenv').config();
 const express = require('express')
+const cors = require('cors');
+
 const { setUpConnection } = require('./utils/dataBase.utils.js');
 const routes = require('./v1/routes.js');
 
@@ -10,6 +12,7 @@ const app = express();
 setUpConnection();
 
 app.use(express.json())
+app.use(cors({ origin: '*' }));
 
 app.use("/", routes);
 
