@@ -1,0 +1,12 @@
+body {
+  background: gray;
+}
+
+.app {
+  max-width: 800px;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0 auto;
+  background: yellow; 
+  padding: 15px;
+}
