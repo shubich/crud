@@ -12,8 +12,8 @@ export const getCustomerById = (id) => {
     return apiClient.get(`/customer/${id}`);
 }
 
-export const editCustomerById = (id, data) => {
-    return apiClient.put(`/customer/${id}`, data);
+export const editCustomerById = (data) => {
+    return apiClient.put('/customer', data);
 }
 
 export const deleteCustomerById = (id) => {

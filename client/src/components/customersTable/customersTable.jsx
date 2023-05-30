@@ -35,7 +35,7 @@ const CustomersTable = ({data, loading, deleteCustomerFromList, editCustomerFrom
     }
 
     const handleEditSave = () => {
-        editCustomerById(editableId, {id: editableId, name: inputValue}).then(() => {
+        editCustomerById({id: editableId, name: inputValue}).then(() => {
             editCustomerFromList(editableId, inputValue);
             handleCancel(null);
         });

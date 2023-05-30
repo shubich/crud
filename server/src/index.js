@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express')
 const cors = require('cors');
+const path = require('path');
 const socket = require("socket.io");
 
 const { setUpConnection } = require('./utils/dataBase.utils.js');
@@ -16,7 +17,13 @@ setUpConnection();
 app.use(express.json())
 app.use(cors({ origin: '*' }));
 
-app.use("/", routes);
+
+app.use("/api", routes);
+
+app.use(express.static(path.join(__dirname, '../../client/build')));
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
+});
 
 // Global error handling
 app.use((err, _req, res, next) => {
