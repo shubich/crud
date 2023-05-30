@@ -17,12 +17,13 @@ setUpConnection();
 app.use(express.json())
 app.use(cors({ origin: '*' }));
 
+
+app.use("/api", routes);
+
 app.use(express.static(path.join(__dirname, '../../client/build')));
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
 });
-
-app.use("/api", routes);
 
 // Global error handling
 app.use((err, _req, res, next) => {
