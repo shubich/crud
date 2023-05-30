@@ -1,0 +1,26 @@
+.table {
+    font-size: 22px;
+}
+
+.table, .th, .td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.th, .td {
+    padding: 5px 15px;
+    height: 48px;
+    box-sizing: border-box;
+}
+
+.th:first-child {
+    width: 20px;
+}
+
+.td:nth-child(2) {
+    width: 350px;
+}
+
+.td:nth-child(3) {
+    width: 160px;
+}
