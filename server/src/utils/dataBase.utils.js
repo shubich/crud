@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionString = process.env.ATLAS_URI || "";
+const connectionString = "mongodb+srv://shubichandrey:SLudPs5zX0FpUBqc@cluster0.jssdgla.mongodb.net/?retryWrites=true&w=majority";
 
 function setUpConnection() {
   mongoose.connect(connectionString);

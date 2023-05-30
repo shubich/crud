@@ -8,7 +8,7 @@ const { setUpConnection } = require('./utils/dataBase.utils.js');
 const routes = require('./v1/routes.js');
 const { Socket } = require('./utils/socket.utils.js');
 
-const serverPort = process.env.SERVER_PORT || "8000";
+const serverPort = "8000";
 
 const app = express();
 
