@@ -1,6 +1,5 @@
 .table {
     font-size: 22px;
-    margin: 0 auto;
 }
 
 .table, .th, .td {
@@ -10,4 +9,41 @@
 
 .th, .td {
     padding: 5px 15px;
+    height: 48px;
+    box-sizing: border-box;
+}
+
+.th:first-child {
+    width: 20px;
+}
+
+.td:nth-child(2) {
+    width: 350px;
+}
+
+.td:nth-child(3) {
+    width: 160px;
+}
+
+.action {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+
+.action:not(:first-child) {
+    margin-left: 5px;
+}
+
+.input, .button {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.input {
+    width: 190px;
+}
+
+.button {
+    margin-left: 15px;
 }

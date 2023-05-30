@@ -5,13 +5,18 @@ import AddCustomer from '../../components/addCustomer';
 import styles from './home.module.css';
 
 const Home = () => {
-    const { data, loading } = useCustomers();
+    const { data, loading, addCustomerToList, deleteCustomerFromList, editCustomerFromList } = useCustomers();
 
     return (
         <div>
             <h1 className={styles.header}>Customers</h1>
-            <AddCustomer />
-            <CustomersTable data={data} loading={loading}/>
+            <AddCustomer addCustomerToList={addCustomerToList} />
+            <CustomersTable 
+                data={data} 
+                loading={loading} 
+                deleteCustomerFromList={deleteCustomerFromList} 
+                editCustomerFromList={editCustomerFromList}    
+            />
         </div>
 
     )

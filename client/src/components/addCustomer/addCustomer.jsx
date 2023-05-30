@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createCustomer }  from '../../services/customer.service';
 import styles from './addCustomer.module.css';
 
-const AddCustomer = () => {
+const AddCustomer = ({ addCustomerToList }) => {
     const [name, setName] = useState('');
 
     const handleNameChange = (e) => {
@@ -10,7 +10,9 @@ const AddCustomer = () => {
     }
 
     const handleAddCustomer = () => {
-        createCustomer({ name });
+        createCustomer({ name }).then((res) => {
+            addCustomerToList(res.data);
+        });
     };
 
     return (    

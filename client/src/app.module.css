@@ -3,6 +3,8 @@ body {
 }
 
 .app {
+  display: flex;
+  justify-content: center;
   max-width: 800px;
   height: 100vh;
   box-sizing: border-box;

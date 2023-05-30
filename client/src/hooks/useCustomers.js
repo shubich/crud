@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getCustomers } from '../services/customer.service';
 
 const useCustomers = () => {
@@ -15,9 +15,29 @@ const useCustomers = () => {
         })
     }, []);
 
+    const addCustomerToList = useCallback((customer) => {
+        setData([...data, customer]);
+    }, [data]);
+
+    const deleteCustomerFromList = useCallback((id) => {
+        setData(data.filter(item => item._id !== id))
+    }, [data]);
+
+    const editCustomerFromList = useCallback((id, name) => {
+        setData(data.map(item => {
+            if (item._id === id) {
+                return {...item, name};
+            }
+            return item;
+        }))
+    }, [data]);
+
     return {
         data,
         loading,
+        addCustomerToList,
+        deleteCustomerFromList,
+        editCustomerFromList,
     }
 }
 
