@@ -15,7 +15,7 @@ const Customer = () => {
     const {data: addresses, addAddressToList} = useAddresses(customerId);
 
     useEffect(() => {
-        const socket = io("http://localhost:8000/");
+        const socket = io(process.env.REACT_APP_BASE_URL);
         
         socket.on(customerId, (address) => {
             addAddressToList(address);

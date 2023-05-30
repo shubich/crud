@@ -3,7 +3,7 @@ import axios from "axios";
 class ApiProvider {
     constructor() {
         this.apiClient = axios.create({
-            baseURL: "http://localhost:8000",
+            baseURL: process.env.REACT_APP_BASE_URL,
             timeout: 1000,
             // headers: {'X-Custom-Header': 'foobar'}
         });
