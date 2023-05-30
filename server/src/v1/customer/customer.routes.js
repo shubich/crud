@@ -1,5 +1,6 @@
 const express = require('express');
 const { getCustomers, getCustomerById, createCustomer, editCustomer, deleteCustomer } = require('./customer.controller');
+const { removeAddressesByCustomerId } = require('../address/address.controller');
 
 const router = express.Router();
 
@@ -32,9 +33,14 @@ router.route('/customer').put((req, res) => {
 });
 
 router.route('/customer/:id').delete((req, res) => {
-    deleteCustomer(req.params.id)
+    const customerId = req.params.id;
+
+    removeAddressesByCustomerId(customerId)
+        .catch((err) => res.send(`Cannot delete addresses for ${customerId}`).status(500) );
+
+    deleteCustomer(customerId)
         .then((data) => res.send(data))
-        .catch((err) => res.send("Something went wrong").status(500) );
+        .catch((err) => res.send(`Cannot delete customer ${customerId}`).status(500) );
 });
 
 module.exports = router;

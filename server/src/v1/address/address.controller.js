@@ -14,7 +14,13 @@ const createAddress = (location, customerId) => {
     return address.save()
 };
 
+const removeAddressesByCustomerId = (customerId) => {
+    return Address.find({ customerId }).deleteMany();
+};
+
+
 module.exports = {
     getAddressesByCustomerId,
     createAddress,
+    removeAddressesByCustomerId,
 }
