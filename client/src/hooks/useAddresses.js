@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getAddressesByCustomerId } from '../services/address.service';
 
 const useAddresses = (customerId) => {
@@ -15,9 +15,14 @@ const useAddresses = (customerId) => {
         })
     }, []);
 
+    const addAddressToList = useCallback((address) => {
+        setData([...data, address]);
+    }, [data]);
+
     return {
         data,
         loading,
+        addAddressToList,
     }
 }
 
