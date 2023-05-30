@@ -3,3 +3,8 @@
     justify-content: space-between;
     align-items: baseline;
 }
+
+.header .name {
+    font-size: 26px;
+    font-weight: bold;
+}

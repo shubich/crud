@@ -37,7 +37,7 @@ const Customer = () => {
     return (
         <div>
             <div className={styles.header}>
-                <h1>{data.name}</h1>
+                <h1 className={styles.name}>{data.name}</h1>
                 <Link className={styles.goBack} to="/">Go Back</Link>
             </div>
             
