@@ -2,13 +2,13 @@ import React from 'react';
 
 import styles from './addressesTable.module.css';
 
-const AddressesTable = ({data, loading}) => {
+const AddressesTable = ({ data, loading }) => {
     if (loading) {
         return <div>Loading...</div>;
     }
 
     if (!data?.length) {
-        return  <div>No data</div>;
+        return <div>No data</div>;
     }
 
     return (
@@ -20,19 +20,15 @@ const AddressesTable = ({data, loading}) => {
                 </tr>
             </thead>
             <tbody>
-                {
-                    data.map((item, index) => {
-                        return (
-                            <tr key={item._id}>
-                                <td className={styles.td}>{index+1}</td>
-                                <td className={styles.td}>{item.location}</td>
-                            </tr>
-                        )
-                    })
-                }
+                {data.map((item, index) => (
+                    <tr key={item._id}>
+                        <td className={styles.td}>{index + 1}</td>
+                        <td className={styles.td}>{item.location}</td>
+                    </tr>
+                ))}
             </tbody>
         </table>
-    )
-}
+    );
+};
 
 export default AddressesTable;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createAddress }  from '../../services/address.service';
+import { createAddress } from '../../services/address.service';
 import styles from './addAddress.module.css';
 
 const AddAddress = ({ customerId }) => {
@@ -7,35 +7,35 @@ const AddAddress = ({ customerId }) => {
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
-        setLocation(e.target.value)
-    }
+        setLocation(e.target.value);
+    };
 
     const handleAddAddress = () => {
         setLoading(true);
-        createAddress({ location, customerId }).then((res) => {
-            setLocation('');
-        }).finally(() => {
-            setLoading(false)
-        })
+        createAddress({ location, customerId })
+            .then(() => {
+                setLocation('');
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     };
 
-    return (    
+    return (
         <div className={styles.container}>
-            <input 
-                className={styles.input} 
-                onChange={handleChange} 
-                type="text" 
-                placeholder='Address' 
-                disabled={loading} 
-                value={location} 
+            <input
+                className={styles.input}
+                onChange={handleChange}
+                type="text"
+                placeholder="Address"
+                disabled={loading}
+                value={location}
             />
-            <button 
-                className={styles.button} 
-                onClick={handleAddAddress} 
-                disabled={loading || !location}
-            >Add Address</button>
+            <button className={styles.button} onClick={handleAddAddress} disabled={loading || !location}>
+                Add Address
+            </button>
         </div>
-    )
-}
+    );
+};
 
 export default AddAddress;

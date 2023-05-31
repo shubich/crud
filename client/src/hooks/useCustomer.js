@@ -6,19 +6,22 @@ const useCustomer = (id) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getCustomerById(id).then(res => {
-            setData(res.data);
-        }).catch((err) => {
-            console.error(err);
-        }).finally(() => {
-            setLoading(false);
-        })
+        getCustomerById(id)
+            .then((res) => {
+                setData(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, []);
 
     return {
         data,
         loading,
-    }
-}
+    };
+};
 
 export default useCustomer;

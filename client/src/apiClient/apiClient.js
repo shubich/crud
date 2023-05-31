@@ -1,4 +1,4 @@
-import ApiProvider from "./ApiProvider";
+import ApiProvider from './ApiProvider';
 
 const apiClient = new ApiProvider();
 

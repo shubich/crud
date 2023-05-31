@@ -1,9 +1,5 @@
-import apiClient from "../apiClient/apiClient"
+import apiClient from '../apiClient/apiClient';
 
-export const getAddressesByCustomerId = (customerId) => {
-    return apiClient.get(`/address/${customerId}`);
-}
+export const getAddressesByCustomerId = (customerId) => apiClient.get(`/address/${customerId}`);
 
-export const createAddress = (data) => {
-    return apiClient.post('/address', data);
-}
+export const createAddress = (data) => apiClient.post('/address', data);

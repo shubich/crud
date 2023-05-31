@@ -6,24 +6,30 @@ const useAddresses = (customerId) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getAddressesByCustomerId(customerId).then(res => {
-            setData(res.data);
-        }).catch((err) => {
-            console.error(err);
-        }).finally(() => {
-            setLoading(false);
-        })
+        getAddressesByCustomerId(customerId)
+            .then((res) => {
+                setData(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, []);
 
-    const addAddressToList = useCallback((address) => {
-        setData([...data, address]);
-    }, [data]);
+    const addAddressToList = useCallback(
+        (address) => {
+            setData([...data, address]);
+        },
+        [data]
+    );
 
     return {
         data,
         loading,
         addAddressToList,
-    }
-}
+    };
+};
 
 export default useAddresses;

@@ -11,15 +11,14 @@ const Home = () => {
         <div>
             <h1 className={styles.header}>Customers</h1>
             <AddCustomer addCustomerToList={addCustomerToList} />
-            <CustomersTable 
-                data={data} 
-                loading={loading} 
-                deleteCustomerFromList={deleteCustomerFromList} 
-                editCustomerFromList={editCustomerFromList}    
+            <CustomersTable
+                data={data}
+                loading={loading}
+                deleteCustomerFromList={deleteCustomerFromList}
+                editCustomerFromList={editCustomerFromList}
             />
         </div>
-
-    )
-}
+    );
+};
 
 export default Home;
